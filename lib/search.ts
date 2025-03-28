@@ -6,9 +6,14 @@ import { grcContent } from "./grc"
 import { networkSecurityContent } from "./network-security"
 import { applicationSecurityContent } from "./application-security"
 import { cryptographyContent } from "./cryptography"
+// import { threatModelingContent } from "./threat-modeling"
+// import { riskManagementContent } from "./risk-management"
+// import { vulnerabilityAnalysisContent } from "./vulnerability-analysis"
+import { malwareAnalysisContent } from "./malware-analysis"
+import { frameworks } from "./frameworks"
 
 export interface SearchResult {
-  type: "domain" | "tool" | "example"
+  type: "domain" | "tool" | "example" | "framework"
   title: string
   description: string
   href: string
@@ -32,6 +37,19 @@ export function performSearch(query: string): SearchResult[] {
         description: domain.description,
         href: domain.href || "",
         category: "Domain",
+      })
+    }
+  })
+
+  // Search frameworks
+  frameworks.forEach((framework) => {
+    if (framework.name.toLowerCase().includes(lowerQuery) || framework.description.toLowerCase().includes(lowerQuery)) {
+      results.push({
+        type: "framework",
+        title: framework.name,
+        description: framework.description,
+        href: `/frameworks/${framework.id}`,
+        category: "Framework",
       })
     }
   })
@@ -75,6 +93,10 @@ export function performSearch(query: string): SearchResult[] {
   searchExamples(networkSecurityContent.examples, "network-security")
   searchExamples(applicationSecurityContent.examples, "application-security")
   searchExamples(cryptographyContent.examples, "cryptography")
+  searchExamples(threatModelingContent.examples, "threat-modeling")
+  searchExamples(riskManagementContent.examples, "risk-management")
+  searchExamples(vulnerabilityAnalysisContent.examples, "vulnerability-analysis")
+  searchExamples(malwareAnalysisContent.examples, "malware-analysis")
 
   return results
 }

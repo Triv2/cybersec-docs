@@ -77,6 +77,15 @@ export function SearchDialog({ ...props }: DialogProps) {
                     </CommandItem>
                   ))}
               </CommandGroup>
+              <CommandGroup heading="Frameworks">
+                {results
+                  .filter((result) => result.category === "Framework")
+                  .map((result, index) => (
+                    <CommandItem key={`framework-${index}`} onSelect={() => handleSelect(result)}>
+                      {result.title}
+                    </CommandItem>
+                  ))}
+              </CommandGroup>
               <CommandGroup heading="Tools">
                 {results
                   .filter((result) => result.category === "Tool")

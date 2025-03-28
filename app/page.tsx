@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
-import { ArrowRight, Award, BookText } from "lucide-react"
+import { ArrowRight, Award, BookText, Shield } from "lucide-react"
 import { domains } from "@/lib/domains"
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {domains.map((domain) => {
+        {domains.slice(0, 6).map((domain) => {
           const Icon = domain.icon
           return (
             <Card key={domain.id} className="transition-all hover:shadow-md">
@@ -36,7 +36,24 @@ export default function Home() {
         })}
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div className="grid gap-6 sm:grid-cols-3">
+        <Card className="transition-all hover:shadow-md">
+          <CardHeader>
+            <div className="flex items-center gap-2">
+              <Shield className="h-5 w-5 text-primary" />
+              <CardTitle>Frameworks</CardTitle>
+            </div>
+            <CardDescription>Explore industry-standard cybersecurity frameworks and methodologies</CardDescription>
+          </CardHeader>
+          <CardFooter>
+            <Button asChild variant="ghost" className="w-full justify-between">
+              <Link href="/frameworks">
+                View Frameworks <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
+          </CardFooter>
+        </Card>
+
         <Card className="transition-all hover:shadow-md">
           <CardHeader>
             <div className="flex items-center gap-2">

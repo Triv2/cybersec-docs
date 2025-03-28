@@ -1,4 +1,4 @@
-import { Database, Terminal, FileText, Server, Shield, Lock } from "lucide-react"
+import { Database, Terminal, FileText, Server, Shield, Lock, Target, BarChart, Search, Bug } from "lucide-react"
 
 export interface Tool {
   name: string
@@ -74,6 +74,34 @@ export const domains: Domain[] = [
     description: "Encryption, hashing, and secure communication protocols",
     icon: Lock,
     href: "/domains/cryptography",
+  },
+  {
+    id: "threat-modeling",
+    title: "Threat Modeling",
+    description: "Structured approach to identifying and addressing security risks",
+    icon: Target,
+    href: "/domains/threat-modeling",
+  },
+  {
+    id: "risk-management",
+    title: "Risk Management",
+    description: "Process of identifying, assessing, and responding to security risks",
+    icon: BarChart,
+    href: "/domains/risk-management",
+  },
+  {
+    id: "vulnerability-analysis",
+    title: "Vulnerability Analysis",
+    description: "Identifying, quantifying, and prioritizing security vulnerabilities",
+    icon: Search,
+    href: "/domains/vulnerability-analysis",
+  },
+  {
+    id: "malware-analysis",
+    title: "Malware Analysis",
+    description: "Studying malicious software to understand its functionality and impact",
+    icon: Bug,
+    href: "/domains/malware-analysis",
   },
 ]
 

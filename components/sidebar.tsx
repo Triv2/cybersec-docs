@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu, ChevronDown, Home, BookOpen, Wrench, Lightbulb, Award, BookText } from "lucide-react"
+import { Menu, ChevronDown, Home, BookOpen, Wrench, Lightbulb, Award, BookText, Shield } from "lucide-react"
 import { ModeToggle } from "./mode-toggle"
 import { domains } from "@/lib/domains"
 
@@ -71,6 +71,11 @@ export function Sidebar({ className }: SidebarProps) {
           href: "/tools/scanners",
         },
       ],
+    },
+    {
+      title: "Frameworks",
+      icon: Shield,
+      href: "/frameworks",
     },
     {
       title: "Certifications",
