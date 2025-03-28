@@ -8,7 +8,7 @@ import { applicationSecurityContent } from "./application-security"
 import { cryptographyContent } from "./cryptography"
 // import { threatModelingContent } from "./threat-modeling"
 // import { riskManagementContent } from "./risk-management"
-// import { vulnerabilityAnalysisContent } from "./vulnerability-analysis"
+import { vulnerabilityAnalysisContent } from "./vulnerability-analysis"
 import { malwareAnalysisContent } from "./malware-analysis"
 import { frameworks } from "./frameworks"
 

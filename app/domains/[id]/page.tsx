@@ -5,6 +5,7 @@ import { getDomain } from "@/lib/domains"
 import { notFound } from "next/navigation"
 import { getInfographicsByDomain } from "@/lib/infographics"
 import { InfographicCard } from "@/components/infographic-card"
+import { ProseContent } from "@/components/prose-content"
 
 interface DomainPageProps {
   params: {
@@ -41,7 +42,7 @@ export default function DomainPage({ params }: DomainPageProps) {
         </TabsList>
 
         <TabsContent value="theory" className="space-y-6">
-          <div className="prose dark:prose-invert max-w-none">
+          <ProseContent>
             <h2>Introduction to {domain.title}</h2>
             <p>{domain.theory?.introduction}</p>
 
@@ -51,11 +52,11 @@ export default function DomainPage({ params }: DomainPageProps) {
                 <div dangerouslySetInnerHTML={{ __html: section.content.replace(/\n/g, "<br />") }} />
               </div>
             ))}
-          </div>
+          </ProseContent>
         </TabsContent>
 
         <TabsContent value="examples" className="space-y-6">
-          <div className="prose dark:prose-invert max-w-none">
+          <ProseContent>
             <h2>{domain.title} Examples</h2>
 
             {domain.examples?.map((example, index) => (
@@ -66,7 +67,7 @@ export default function DomainPage({ params }: DomainPageProps) {
                 <CodeBlock language={example.language} code={example.code} />
               </div>
             ))}
-          </div>
+          </ProseContent>
         </TabsContent>
 
         <TabsContent value="tools" className="space-y-6">

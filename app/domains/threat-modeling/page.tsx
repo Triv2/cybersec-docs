@@ -5,6 +5,7 @@ import { threatModelingContent } from "@/lib/threat-modeling"
 import { getInfographicsByDomain } from "@/lib/infographics"
 import { InfographicCard } from "@/components/infographic-card"
 import { Target } from "lucide-react"
+import { ProseContent } from "@/components/prose-content"
 
 export default function ThreatModelingPage() {
   const infographics = getInfographicsByDomain("threat-modeling") || []
@@ -31,14 +32,11 @@ export default function ThreatModelingPage() {
         </TabsList>
 
         <TabsContent value="theory" className="space-y-6">
-          <div
-            className="prose dark:prose-invert max-w-none"
-            dangerouslySetInnerHTML={{ __html: threatModelingContent.theory }}
-          />
+          <ProseContent dangerouslySetInnerHTML={{ __html: threatModelingContent.theory }} />
         </TabsContent>
 
         <TabsContent value="examples" className="space-y-6">
-          <div className="prose dark:prose-invert max-w-none">
+          <ProseContent>
             <h2>Threat Modeling Examples</h2>
 
             {threatModelingContent.examples.map((example, index) => (
@@ -49,7 +47,7 @@ export default function ThreatModelingPage() {
                 <CodeBlock language={example.language} code={example.code} />
               </div>
             ))}
-          </div>
+          </ProseContent>
         </TabsContent>
 
         <TabsContent value="tools" className="space-y-6">

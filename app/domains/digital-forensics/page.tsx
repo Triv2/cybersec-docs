@@ -3,6 +3,7 @@ import { CodeBlock } from "@/components/code-block"
 import { ToolCard } from "@/components/tool-card"
 import { digitalForensicsContent } from "@/lib/digital-forensics"
 import { forensicsTools } from "@/lib/tools"
+import { ProseContent } from "@/components/prose-content"
 
 export default function DigitalForensicsPage() {
   return (
@@ -23,14 +24,11 @@ export default function DigitalForensicsPage() {
         </TabsList>
 
         <TabsContent value="theory" className="space-y-6">
-          <div
-            className="prose dark:prose-invert max-w-none"
-            dangerouslySetInnerHTML={{ __html: digitalForensicsContent.theory }}
-          />
+          <ProseContent dangerouslySetInnerHTML={{ __html: digitalForensicsContent.theory }} />
         </TabsContent>
 
         <TabsContent value="examples" className="space-y-6">
-          <div className="prose dark:prose-invert max-w-none">
+          <ProseContent>
             <h2>Digital Forensics Examples</h2>
 
             {digitalForensicsContent.examples.map((example, index) => (
@@ -41,7 +39,7 @@ export default function DigitalForensicsPage() {
                 <CodeBlock language={example.language} code={example.code} />
               </div>
             ))}
-          </div>
+          </ProseContent>
         </TabsContent>
 
         <TabsContent value="tools" className="space-y-6">
