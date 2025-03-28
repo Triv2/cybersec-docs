@@ -9,8 +9,8 @@ interface CertificationPageProps {
   }
 }
 
-export default function CertificationPage({ params }: CertificationPageProps) {
-  const certification = getCertification(params.id)
+export default async function CertificationPage({ params }: CertificationPageProps) {
+  const certification = await getCertification(params.id)
 
   if (!certification) {
     notFound()

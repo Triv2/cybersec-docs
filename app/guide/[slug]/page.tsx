@@ -8,8 +8,8 @@ interface GuidePageProps {
   }
 }
 
-export default function GuidePage({ params }: GuidePageProps) {
-  const guide = getGuide(params.slug)
+export default async function GuidePage({ params }: GuidePageProps) {
+  const guide = await getGuide(params.slug)
 
   if (!guide) {
     notFound()

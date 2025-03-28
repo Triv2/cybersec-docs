@@ -12,8 +12,8 @@ interface BookPageProps {
   }
 }
 
-export default function BookPage({ params }: BookPageProps) {
-  const book = getBook(params.id)
+export default async function BookPage({ params }: BookPageProps) {
+  const book = await getBook(params.id)
 
   if (!book) {
     notFound()

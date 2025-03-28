@@ -9,8 +9,8 @@ interface ToolsCategoryPageProps {
   }
 }
 
-export default function ToolsCategoryPage({ params }: ToolsCategoryPageProps) {
-  const category = getToolCategory(params.category)
+export default async function ToolsCategoryPage({ params }: ToolsCategoryPageProps) {
+  const category = await getToolCategory(params.category)
 
   if (!category) {
     notFound()

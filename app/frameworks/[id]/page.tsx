@@ -12,8 +12,8 @@ interface FrameworkPageProps {
   }
 }
 
-export default function FrameworkPage({ params }: FrameworkPageProps) {
-  const framework = getFrameworkDetail(params.id)
+export default async function FrameworkPage({ params }: FrameworkPageProps) {
+  const framework = await getFrameworkDetail(params.id)
 
   if (!framework) {
     notFound()

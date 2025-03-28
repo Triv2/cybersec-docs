@@ -13,8 +13,8 @@ interface DomainPageProps {
   }
 }
 
-export default function DomainPage({ params }: DomainPageProps) {
-  const domain = getDomain(params.id)
+export default async function DomainPage({ params }: DomainPageProps) {
+  const domain = await getDomain(params.id)
 
   if (!domain) {
     notFound()
